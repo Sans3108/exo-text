@@ -1,0 +1,79 @@
+:root {
+  --theme-switch-accent: white;
+  --theme-switch-bg: rgba(26, 26, 26, 0.9);
+  --theme-switch-bg-more: rgb(0, 0, 0);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  text-rendering: optimizeLegibility;
+  font-family: 'Segoe UI';
+}
+
+.bg {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background: linear-gradient(to bottom right, #ed4b00, #3b21ad);
+}
+
+.title {
+  margin-top: 0.5%;
+  position: absolute;
+  left: 50%;
+  text-align: center;
+  align-self: center;
+  transform: translateX(-50%);
+  text-shadow: 3px 4px 20px rgb(0, 0, 0);
+}
+
+.note-container {
+  position: absolute;
+  top: 10%;
+  left: 2%;
+  display: grid;
+  flex-direction: row;
+  border: 2px solid red;
+}
+
+.note {
+  border: 2px solid black;
+  border-radius: 20px;
+  background-color: rgba(26, 26, 26, 0.75);
+  min-width: 200px;
+  max-width: 400px;
+  min-height: 100px;
+  max-height: 600px;
+  padding: 10px;
+  color: rgba(255, 255, 255, 0.75);
+  box-shadow: 3px 3px 8px 1px black;
+  height: fit-content;
+  width: fit-content;
+  overflow-y: scroll;
+  text-align: center;
+}
+
+.note:focus-visible {
+  outline: none;
+  animation-name: focus;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes focus {
+  100% {
+    color: rgb(255, 255, 255, 1);
+  }
+}
+
+.note::-webkit-scrollbar-track,
+.note::-webkit-scrollbar,
+.note::-webkit-scrollbar-thumb {
+  display: none;
+}
+
