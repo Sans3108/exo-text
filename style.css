@@ -1,9 +1,3 @@
-:root {
-  --theme-switch-accent: white;
-  --theme-switch-bg: rgba(26, 26, 26, 0.9);
-  --theme-switch-bg-more: rgb(0, 0, 0);
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -14,11 +8,12 @@ html {
   font-family: 'Segoe UI';
 }
 
-.bg {
-  height: 100vh;
+body {
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background: linear-gradient(to bottom right, #ed4b00, #3b21ad);
+  background-position: center;
+  background-size: cover;
+  background-image: url('./bg.png');
 }
 
 .title {
@@ -37,7 +32,7 @@ html {
   left: 2%;
   display: grid;
   flex-direction: row;
-  border: 2px solid red;
+  border: 2px dashed white;
 }
 
 .note {
@@ -48,6 +43,7 @@ html {
   max-width: 400px;
   min-height: 100px;
   max-height: 600px;
+  margin: 10px;
   padding: 10px;
   color: rgba(255, 255, 255, 0.75);
   box-shadow: 3px 3px 8px 1px black;
