@@ -2,34 +2,39 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exo Text</title>
+  <title>Simple Notes</title>
   <link rel="icon" href="icon.ico" type="image/x-icon" />
 
-  <meta property="og:title" content="Calculator" />
+  <meta property="og:title" content="Simple Notes" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sans3108.github.io/calculator" />
-  <meta property="og:description" content="Simple calculator app, cuz I didn't have anything better to do." />
+  <meta property="og:url" content="https://sans3108.github.io/exo-text" />
+  <meta property="og:description" content="Simple notes app, cuz I didn't have anything better to do." />
   <meta name="theme-color" content="#ED5700">
 
   <script src="script.js" defer></script>
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="sbar">
   <div class="bg">
-    <h1 class="title"><u>Exo Text</u></h1>
-    <div class="note-container">
-      <div class="note" spellcheck="false" contenteditable>Sample Text Lmfao</div>
-      <div class="note" spellcheck="false" contenteditable>Sample Text Lmfao</div>
-      <div class="note" spellcheck="false" contenteditable>Sample Text Lmfao</div>
-      <div class="note" spellcheck="false" contenteditable>Sample Text Lmfao</div>
-      <div class="note" spellcheck="false" contenteditable>Sample Text Lmfao</div>
-      <div class="note" spellcheck="false" contenteditable>Sample Text Lmfao</div>
-      <div class="note" spellcheck="false" contenteditable>Sample Text Lmfao</div>
-      <div class="note" spellcheck="false" contenteditable>Sample Text Lmfao</div>
-      <div class="note" spellcheck="false" contenteditable>Sample Text Lmfao</div>
-      <div class="note" spellcheck="false" contenteditable>Sample Text Lmfao</div>
-      <div class="note" spellcheck="false" contenteditable>Sample Text Lmfao</div>
+    <h1 class="title"><u>Simple Notes</u></h1>
+    <div id="tip" class="tip">
+      <h4>Hi, how are ya?</h4>
+    </div>
+    <button class="new-note" onclick="newNote()">New Note</button>
+    <div class="note-container" note-container>
+
+      <!-- Button card template -->
+      <template note-card-template>
+        <div class="note" spellcheck="false">
+          <div class="note-title" contenteditable="true">New Top Secret Note</div>
+          <div class="note-separator"></div>
+          <div class="note-content" contenteditable="true">Such text, much secrets...</div>
+          <div class="note-separator"></div>
+        </div>
+      </template>
+      <!-- -------------------- -->
+
     </div>
   </div>
 </body>

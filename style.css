@@ -16,54 +16,162 @@ body {
   background-image: url('./bg.png');
 }
 
+.sbar::-webkit-scrollbar {
+  background-color: rgba(208, 161, 251, 0.75);
+  width: 10px;
+}
+
+.sbar::-webkit-scrollbar-thumb {
+  background-color: #422550;
+}
+
+.sbar::-webkit-scrollbar-button {
+  display: none;
+}
+
 .title {
   margin-top: 0.5%;
-  position: absolute;
-  left: 50%;
-  text-align: center;
-  align-self: center;
-  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
   text-shadow: 3px 4px 20px rgb(0, 0, 0);
+  text-align: center;
+}
+
+.tip {
+  margin-top: 0.5%;
+  display: flex;
+  justify-content: center;
+  text-shadow: 3px 4px 20px rgb(0, 0, 0);
+  text-align: center;
+}
+
+.new-note {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 20px;
+  background-color: rgb(57, 255, 20, 0.55);
+  color: black;
+  padding: 10px;
+  margin-left: 10px;
+  box-shadow: 3px 3px 8px 1px black;
+  z-index: 1;
+  font-weight: bolder;
+  font-size: large;
+}
+
+.new-note:hover {
+  animation-name: btn-hover;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  cursor: pointer;
+}
+
+@keyframes btn-hover {
+  100% {
+    border: 3px solid white;
+    box-shadow: 0px 0px 8px 1px white;
+    background-color: rgb(57, 255, 20, 0.85);
+  }
 }
 
 .note-container {
   position: absolute;
-  top: 10%;
-  left: 2%;
-  display: grid;
+  top: 15%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-evenly;
   flex-direction: row;
-  border: 2px dashed white;
+  flex-wrap: wrap;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .note {
-  border: 2px solid black;
-  border-radius: 20px;
+  border: 3px solid black;
+  border-radius: 25px;
   background-color: rgba(26, 26, 26, 0.75);
-  min-width: 200px;
-  max-width: 400px;
-  min-height: 100px;
-  max-height: 600px;
   margin: 10px;
   padding: 10px;
-  color: rgba(255, 255, 255, 0.75);
   box-shadow: 3px 3px 8px 1px black;
-  height: fit-content;
-  width: fit-content;
   overflow-y: scroll;
-  text-align: center;
+  flex-basis: 90%;
+  max-height: 5%;
+	flex-grow: 0;
+	flex-shrink: 0;
 }
 
-.note:focus-visible {
+.note-title {
+  font-weight: bolder;
+  text-align: center;
+  color: rgba(245, 245, 220, 0.75);
+}
+
+.note-content {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.note-title:focus-visible {
   outline: none;
-  animation-name: focus;
+  animation-name: title-focus;
   animation-duration: 0.2s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
 
-@keyframes focus {
+@keyframes title-focus {
+  100% {
+    color: rgba(245, 245, 220, 1);
+  }
+}
+
+.note-content:focus-visible {
+  outline: none;
+  animation-name: content-focus;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes content-focus {
   100% {
     color: rgb(255, 255, 255, 1);
+  }
+}
+
+.note-separator {
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+
+.save-btn {
+  border: 2px solid black;
+  border-radius: 20px;
+  width: 100px;
+  background-color: rgba(26, 26, 26, 0.75);
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  box-shadow: 3px 3px 8px 1px black;
+}
+
+.save-btn:hover {
+  animation-name: save-btn-hover;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  cursor: pointer;
+}
+
+@keyframes save-btn-hover {
+  100% {
+    border: 2px solid rgb(0, 255, 0);
+    box-shadow: 0px 0px 8px 1px rgba(0, 255, 0, 0.75);
   }
 }
 
@@ -72,4 +180,3 @@ body {
 .note::-webkit-scrollbar-thumb {
   display: none;
 }
-
