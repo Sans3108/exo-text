@@ -88,6 +88,7 @@ body {
   flex-wrap: wrap;
   flex-grow: 0;
   flex-shrink: 0;
+  align-content: start;
 }
 
 .note {
@@ -99,9 +100,10 @@ body {
   box-shadow: 3px 3px 8px 1px black;
   overflow-y: scroll;
   flex-basis: 90%;
-  max-height: 5%;
+  max-height: 20%;
 	flex-grow: 0;
 	flex-shrink: 0;
+  display: block;
 }
 
 .note-title {

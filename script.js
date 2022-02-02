@@ -36,9 +36,6 @@ function newNote() {
 
   id++;
 
-  card.children[0].innerText = `note-${id}`;
-  //card.children[2].innerText = makeid(rNum(15, 200));
-
   btn.className = "save-btn";
   btn.setAttribute("onclick", `saveNote("note-${id}")`);
   card.setAttribute("id", `note-${id}`);
@@ -59,21 +56,4 @@ function getNote(id) {
 function saveNote(id) {
   let data = getNote(id);
   alert(`Note ID: ${data.id}\nTitle: ${data.title}\nContent: ${data.content}`);
-}
-
-function makeid(length) {
-  var result = '';
-  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  var charactersLength = characters.length;
-  for (var i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() *
-      charactersLength));
-  }
-  return result;
-}
-
-function rNum(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
