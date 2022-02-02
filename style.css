@@ -51,8 +51,8 @@ body {
   right: 30px;
   border: 3px solid rgb(255, 255, 255);
   border-radius: 20px;
-  background-color: rgb(57, 255, 20, 0.55);
-  color: black;
+  background-color: rgba(117, 117, 117, 0.55);
+  color: white;
   padding: 10px;
   margin-left: 10px;
   box-shadow: 3px 3px 8px 1px black;
@@ -71,9 +71,8 @@ body {
 
 @keyframes btn-hover {
   100% {
-    border: 3px solid white;
-    box-shadow: 0px 0px 8px 1px white;
-    background-color: rgb(57, 255, 20, 0.85);
+    border: 3px solid rgb(57, 255, 20);
+    box-shadow: 0px 0px 8px 1px rgb(57, 255, 20);
   }
 }
 
@@ -83,11 +82,9 @@ body {
   left: 0;
   right: 0;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  flex-grow: 0;
-  flex-shrink: 0;
   align-content: start;
 }
 
@@ -99,11 +96,10 @@ body {
   padding: 10px;
   box-shadow: 3px 3px 8px 1px black;
   overflow-y: scroll;
-  flex-basis: 90%;
   max-height: 20%;
-	flex-grow: 0;
-	flex-shrink: 0;
-  display: block;
+  flex-basis: 90%;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .note-title {
@@ -150,30 +146,49 @@ body {
   margin-bottom: 2px;
 }
 
-.save-btn {
+.save-btn,
+.del-btn {
   border: 2px solid black;
   border-radius: 20px;
-  width: 100px;
+  width: fit-content;
   background-color: rgba(26, 26, 26, 0.75);
   color: white;
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 5px;
+  margin-right: 15px;
   box-shadow: 3px 3px 8px 1px black;
 }
 
-.save-btn:hover {
-  animation-name: save-btn-hover;
+.save-btn:hover,
+.del-btn:hover {
   animation-duration: 0.2s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   cursor: pointer;
 }
 
+.save-btn:hover {
+  animation-name: save-btn-hover;
+}
+
 @keyframes save-btn-hover {
   100% {
     border: 2px solid rgb(0, 255, 0);
+    color: rgb(0, 255, 0);
     box-shadow: 0px 0px 8px 1px rgba(0, 255, 0, 0.75);
+  }
+}
+
+.del-btn:hover {
+  animation-name: del-btn-hover;
+}
+
+@keyframes del-btn-hover {
+  100% {
+    border: 2px solid rgb(255, 0, 0);
+    color: rgb(255, 0, 0);
+    box-shadow: 0px 0px 8px 1px rgba(255, 0, 0, 0.75);
   }
 }
 
