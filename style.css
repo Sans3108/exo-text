@@ -5,7 +5,7 @@
 
 html {
   text-rendering: optimizeLegibility;
-  font-family: 'Segoe UI';
+  font-family: "Segoe UI";
 }
 
 body {
@@ -13,7 +13,7 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  background-image: url('./bg.png');
+  background-image: url("./bg.png");
 }
 
 .sbar::-webkit-scrollbar {
@@ -126,20 +126,30 @@ body {
   border-radius: 25px;
   background-color: rgba(26, 26, 26, 0.75);
   margin: 10px;
-  padding: 10px;
+  /* padding: 10px; */
   box-shadow: 3px 3px 8px 1px black;
   overflow-y: scroll;
+  overflow-x: initial;
+
+  position: relative;
 }
 
 .note-title {
-  left: 50%;
   font-weight: bolder;
   text-align: center;
   color: rgba(245, 245, 220, 0.75);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  background-color: black;
+  padding: 10px;
 }
 
 .note-content {
   color: rgba(255, 255, 255, 0.75);
+  margin: 0 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.75);
 }
 
 .note-title:focus-visible {
@@ -170,12 +180,6 @@ body {
   }
 }
 
-.note-separator {
-  border: 1px solid rgba(0, 0, 0, 0.75);
-  margin-top: 10px;
-  margin-bottom: 2px;
-}
-
 .save-btn,
 .del-btn {
   border: 2px solid black;
@@ -184,9 +188,8 @@ body {
   background-color: rgba(26, 26, 26, 0.75);
   color: white;
   padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  margin-right: 15px;
+  margin: 15px;
+  margin-right: 0;
   box-shadow: 3px 3px 8px 1px black;
 }
 
