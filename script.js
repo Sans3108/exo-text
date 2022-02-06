@@ -64,7 +64,7 @@ function newNote(data) {
   }
 
   if (data && data.content) {
-    card.children[2].innerText = data.content;
+    card.children[1].innerText = data.content;
   }
 
   card.setAttribute("id", `${id}`);
@@ -80,7 +80,9 @@ function newNote(data) {
 function getNote(id) {
   let note = document.getElementById(id);
 
-  return { id: id, title: note.children[0].innerText, content: note.children[2].innerText };
+  let data = { id: id, title: note.children[0].innerText, content: note.children[1].innerText };
+
+  return data;
 }
 
 function saveNote(id) {
