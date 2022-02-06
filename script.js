@@ -5,8 +5,9 @@ const tipsArr = [
   "You can edit the title of a note by <i>clicking it</i>, I know right, such tech...",
   "The content of a note can be edited, who would've thought?",
   "Don't forget to save your note!",
+  "If you found a bug, report it <a href='https://github.com/Sans3108/exo-text/issues' target='_blank' rel='noopener noreferrer'>here</a>.",
+  "If you manage to break the app, you can reset it by clicking the \"Reset App\" button.",
   "This app took too long to make, <a href='https://github.com/Sans3108/exo-text' target='_blank' rel='noopener noreferrer'>praise me</a>!",
-  "Did you know you can paste images in notes? Yea... that's definitely not a bug...",
   "Want your own message here? Contact <a href='https://github.com/Sans3108/Sans3108/blob/master/README.md' target='_blank' rel='noopener noreferrer'>me</a>."
 ];
 
@@ -97,14 +98,35 @@ function saveNote(id) {
 }
 
 function delNote(id) {
+  if (isSaved(id)) {
+    let confirmation = prompt("Are you sure you want to delete this note?\nYou cannot undo this action.\n\nTo confirm type in \"yes\" (without quotes).");
+    if (confirmation === 'yes') {
+      let nArr = JSON.parse(localStorage.getItem('notes'));
+
+      if (nArr.find(n => n.id === id)) {
+        let index = nArr.indexOf(nArr.find(n => n.id === id));
+        nArr.splice(index, 1);
+        localStorage.setItem('notes', JSON.stringify(nArr));
+      }
+
+      let card = document.getElementById(id);
+      card.parentNode.removeChild(card);
+    }
+  }
+}
+
+function isSaved(id) {
   let nArr = JSON.parse(localStorage.getItem('notes'));
 
-  if (nArr.find(n => n.id === id)) {
-    let index = nArr.indexOf(nArr.find(n => n.id === id));
-    nArr.splice(index, 1);
-    localStorage.setItem('notes', JSON.stringify(nArr));
-  }
+  if (nArr.find(n => n.id === id)) return true;
+  return false;
+}
 
-  let card = document.getElementById(id);
-  card.parentNode.removeChild(card);
+function resetApp() {
+  let confirmation = prompt("Are you sure you want to reset the app?\nThis will clear all your notes and reload the page.\n\nTo confirm type in \"yes\" (without quotes).");
+  if (confirmation === 'yes') {
+    localStorage.clear();
+    location.reload(true);
+    return false;
+  }
 }

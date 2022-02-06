@@ -31,6 +31,7 @@ body {
 
 .title {
   margin-top: 0.5%;
+  color: white;
   display: flex;
   justify-content: center;
   text-shadow: 3px 4px 20px rgb(0, 0, 0);
@@ -38,7 +39,9 @@ body {
 }
 
 .tip {
-  margin-top: 0.5%;
+  margin-top: 10px;
+  color: white;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   text-shadow: 3px 4px 20px rgb(0, 0, 0);
@@ -46,6 +49,7 @@ body {
 }
 
 .new-note {
+  width: 120px;
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -76,19 +80,48 @@ body {
   }
 }
 
+.reset-app {
+  width: 120px;
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 20px;
+  background-color: rgba(117, 117, 117, 0.55);
+  color: white;
+  padding: 10px;
+  margin-left: 10px;
+  box-shadow: 3px 3px 8px 1px black;
+  z-index: 1;
+  font-weight: bolder;
+  font-size: large;
+}
+
+.reset-app:hover {
+  animation-name: reset-app-hover;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  cursor: pointer;
+}
+
+@keyframes reset-app-hover {
+  100% {
+    border: 3px solid rgb(255, 20, 20);
+    box-shadow: 0px 0px 8px 1px rgb(255, 20, 20);
+  }
+}
+
 .note-container {
-  position: absolute;
-  top: 15%;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: start;
+  box-sizing: border-box;
+  display: grid;
+  grid-auto-rows: 400px;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-gap: 10px;
 }
 
 .note {
+  box-sizing: border-box;
   border: 3px solid black;
   border-radius: 25px;
   background-color: rgba(26, 26, 26, 0.75);
@@ -96,13 +129,10 @@ body {
   padding: 10px;
   box-shadow: 3px 3px 8px 1px black;
   overflow-y: scroll;
-  max-height: 20%;
-  flex-basis: 90%;
-  flex-grow: 0;
-  flex-shrink: 0;
 }
 
 .note-title {
+  left: 50%;
   font-weight: bolder;
   text-align: center;
   color: rgba(245, 245, 220, 0.75);

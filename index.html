@@ -6,7 +6,6 @@
   <link rel="icon" href="icon.ico" type="image/x-icon" />
 
   <meta property="og:title" content="Simple Notes" />
-  <meta property="og:image" content="https://github.com/Sans3108/simple-notes/thumb.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://github.com/Sans3108/simple-notes" />
   <meta property="og:description" content="Simple notes app, cuz I didn't have anything better to do." />
@@ -20,11 +19,12 @@
 
 <body class="sbar">
   <div class="bg">
-    <h1 class="title"><u>Simple Notes</u></h1>
+    <h1 class="title">Simple Notes</h1>
     <div id="tip" class="tip">
       <h4>Hi, how are ya?</h4>
     </div>
     <button class="new-note" onclick="newNote()">New Note</button>
+    <button class="reset-app" onclick="resetApp()">Rest App</button>
     <div class="note-container" note-container>
 
       <!-- Button card template -->
@@ -45,3 +45,4 @@
 </html>
 
 <!-- Hey what the heck are you doing here? Get out, you don't need to see my trash code. -->
+<!-- If you manage to mess up something and notes don't work anymore run this in the console window without quotes: "localStorage.clear()" then refresh the page.-->
