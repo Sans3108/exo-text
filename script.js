@@ -103,18 +103,22 @@ function delNote(id) {
   if (isSaved(id)) {
     let confirmation = prompt("Are you sure you want to delete this note?\nYou cannot undo this action.\n\nTo confirm type in \"yes\" (without quotes).");
     if (confirmation === 'yes') {
-      let nArr = JSON.parse(localStorage.getItem('notes'));
-
-      if (nArr.find(n => n.id === id)) {
-        let index = nArr.indexOf(nArr.find(n => n.id === id));
-        nArr.splice(index, 1);
-        localStorage.setItem('notes', JSON.stringify(nArr));
-      }
-
-      let card = document.getElementById(id);
-      card.parentNode.removeChild(card);
+      delN(id);
     }
+  } else delN(id);
+}
+
+function delN(id) {
+  let nArr = JSON.parse(localStorage.getItem('notes'));
+
+  if (nArr.find(n => n.id === id)) {
+    let index = nArr.indexOf(nArr.find(n => n.id === id));
+    nArr.splice(index, 1);
+    localStorage.setItem('notes', JSON.stringify(nArr));
   }
+
+  let card = document.getElementById(id);
+  card.parentNode.removeChild(card);
 }
 
 function isSaved(id) {
