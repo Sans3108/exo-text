@@ -139,8 +139,11 @@ function resetApp() {
 
 function exportNotes() {
   let nArr = localStorage.getItem('notes');
+  let encrypted = btoa(nArr);
+  console.log(`Copy this and save it somewhere.`);
+  console.log(encrypted);
   let element = document.createElement('a');
-  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(btoa(nArr)));
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(encrypted));
   element.setAttribute('download', 'notes-export.txt');
 
   element.style.display = 'none';
