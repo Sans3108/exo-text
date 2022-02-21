@@ -8,7 +8,7 @@ const tipsArr = [
   "If you found a bug, report it <a href='https://github.com/Sans3108/exo-text/issues' target='_blank' rel='noopener noreferrer'>here</a>.",
   "If you manage to break the app, you can reset it by clicking the \"Reset App\" button.",
   "This app took too long to make, <a href='https://github.com/Sans3108/exo-text' target='_blank' rel='noopener noreferrer'>praise me</a>!",
-  "Want your own message here? Contact <a href='https://github.com/Sans3108/Sans3108/blob/master/README.md' target='_blank' rel='noopener noreferrer'>me</a>."
+  "Want your own message here? Contact <a href='https://thatboisans.top' target='_blank' rel='noopener noreferrer'>me</a>."
 ];
 
 let counter = 0;
@@ -132,6 +132,40 @@ function resetApp() {
   let confirmation = prompt("Are you sure you want to reset the app?\nThis will clear all your notes and reload the page.\n\nTo confirm type in \"yes\" (without quotes).");
   if (confirmation === 'yes') {
     localStorage.clear();
+    location.reload(true);
+    return false;
+  }
+}
+
+function exportNotes() {
+  let nArr = localStorage.getItem('notes');
+  let element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(btoa(nArr)));
+  element.setAttribute('download', 'notes-export.txt');
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+
+  alert("Download should've started, if not check console for the export. Paste the text in the import box to import them.");
+}
+
+function importNotes() {
+  let confirmation = prompt("Importing notes will remove all the existing ones!\nAre you sure you want to import?\n\nTo confirm type in \"yes\" (without quotes).");
+  if (confirmation === 'yes') {
+    let str = prompt("Paste the import string here.");
+    let decrypted = null;
+    try {
+      decrypted = atob(str);
+    } catch (e) {
+      return alert("Malformed input!");
+    }
+    
+    if (!decrypted.startsWith('[')) return alert("Something went wrong!\nDouble check you pasted the correct string and try again.");
+    localStorage.setItem('notes', decrypted);
     location.reload(true);
     return false;
   }
